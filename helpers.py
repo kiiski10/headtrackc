@@ -56,12 +56,9 @@ def listener(serial, run, port):
 				ch.set_active(False)
 
 		GObject.idle_add(insertText, str(port) + " disconnected")
-		GObject.idle_add(insertText, "Communication terminated")
 		ch = builder.get_object("checkbutton1")
 		state = ch.set_sensitive(True)
 
 		ct = builder.get_object("comboboxtext1")
 		ct.set_sensitive(True)
-	except Exception, e:
-		print "LISTENER ERROR: \n", e
 
