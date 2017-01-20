@@ -17,7 +17,7 @@ helpers.builder.connect_signals(sigHandler)
 window = helpers.builder.get_object("mainWindow")	 # This gets the 'mainWindow' objectwindow = builder.get_object("mainWindow")	 # This gets the 'mainWindow' object
 
 statusbar = helpers.builder.get_object("statusbar1")
-status = "© Pekka L. (2017)"
+status = "github.com/kiiski10/headtrackc"
 statusbar.push(1, status)
 statusbar.set_sensitive(False)
 
