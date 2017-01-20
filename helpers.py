@@ -77,7 +77,7 @@ def listener(serial, run, port):
 						btn.set_sensitive(False)
 					ch = builder.get_object("checkbutton1")
 					ch.set_active(False)
-
+'''
 		GObject.idle_add(insertText, str(port) + " disconnected")
 		GObject.idle_add(insertText, "Communication terminated")
 		ch = builder.get_object("checkbutton1")
@@ -87,4 +87,4 @@ def listener(serial, run, port):
 		ct.set_sensitive(True)
 	except Exception, e:
 		print "LISTENER ERROR: \n", e
-'''
+
