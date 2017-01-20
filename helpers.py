@@ -34,7 +34,27 @@ def serialConnect(port):
 		ch = builder.get_object("checkbutton1")
 		state = ch.set_active(False)
 
-
+def listener(serial, run, port):
+	if hasattr(serial, "isOpen"):
+		while serial.isOpen() and run == True:
+			try:
+				data = str(serial.readline())
+				data = data.strip('\n')
+				if data != "":
+					#print data
+					insertText(data)
+					time.sleep(0.1)
+			except Exception, e:
+				print "listener closed"
+				c = 0
+				while c < 6:
+					c += 1
+					name = "button" + str(c)
+					btn = builder.get_object(name)
+					btn.set_sensitive(False)
+				ch = builder.get_object("checkbutton1")
+				ch.set_active(False)
+'''
 def listener(serial, run, port):
 	GObject.idle_add(insertText, "Communication started")
 	try:
@@ -67,3 +87,4 @@ def listener(serial, run, port):
 		ct.set_sensitive(True)
 	except Exception, e:
 		print "LISTENER ERROR: \n", e
+'''
