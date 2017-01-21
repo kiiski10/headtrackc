@@ -45,16 +45,18 @@ def listener(serial, run, port):
 					insertText(data)
 					time.sleep(0.1)
 			except Exception, e:
-				print "listener closed"
-				c = 0
-				while c < 6:
-					c += 1
-					name = "button" + str(c)
-					btn = builder.get_object(name)
-					btn.set_sensitive(False)
-				ch = builder.get_object("checkbutton1")
-				ch.set_active(False)
+				print "LISTENER ERROR", e
+		c = 0
+		while c < 6:
+			c += 1
+			name = "button" + str(c)
+			btn = builder.get_object(name)
+			btn.set_sensitive(False)
 
+		ch = builder.get_object("checkbutton1")
+		ch.set_active(False)
+
+		print "listener closed"
 		GObject.idle_add(insertText, str(port) + " disconnected")
 		ch = builder.get_object("checkbutton1")
 		state = ch.set_sensitive(True)
