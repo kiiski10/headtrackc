@@ -63,4 +63,3 @@ def listener(serial, run, port):
 
 		ct = builder.get_object("comboboxtext1")
 		ct.set_sensitive(True)
-
