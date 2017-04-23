@@ -7,15 +7,11 @@
 
 // ################ 	SETTINGS	 ################
 //
-
-
 int calX = 735;			// Calibration values
 int calY = 355;
 
 int interval = 2;		// Milliseconds between samples
-
 int maxOut = 50;
-
 //
 // ################ 	/SETTINGS	 ################
 
@@ -63,16 +59,6 @@ void loop() {
 
 	lsm.read();
 
-	/*
-	int accX = map(lsm.accelData.x, minIn, maxIn, (maxOut * -1), maxOut);
-	int accY = map(lsm.accelData.y, minIn, maxIn, (maxOut * -1), maxOut);
-	int accZ = map(lsm.accelData.z, minIn, maxIn, (maxOut * -1), maxOut);
-
-	int magX = map(lsm.magData.x, minIn, maxIn, (maxOut * -1), maxOut);
-	int magY = map(lsm.magData.y, minIn, maxIn, (maxOut * -1), maxOut);
-	int magZ = map(lsm.magData.z, minIn, maxIn, (maxOut * -1), maxOut);
-	*/
-
 	int gyroX = map((lsm.gyroData.x), minIn, maxIn, (maxOut * -1), maxOut);
 	int gyroY = map((lsm.gyroData.y + calY), minIn, maxIn, (maxOut * -1), maxOut);
 	int gyroZ = map((lsm.gyroData.z + calX), minIn, maxIn, (maxOut * -1), maxOut);
@@ -119,26 +105,6 @@ void loop() {
 	Serial.print(" ");
 	Serial.println(lsm.gyroData.z);
 
-	Serial.print(gyroX);
-	Serial.print(" ");
-	Serial.print(gyroY);
-	Serial.print(" ");
-	Serial.print(gyroZ);
-	Serial.println(" ");
-
-	Serial.print((int)accX);
-	Serial.print(",");
-	Serial.print((int)accY);
-	Serial.print(",");
-	Serial.print((int)accZ);
-	Serial.print(" ");
-
-	Serial.print((int)magX);
-	Serial.print(",");
-	Serial.print((int)magY);
-	Serial.print(",");
-	Serial.print((int)magZ);
-	Serial.print(" ");
 
 	Serial.print((int)gyroX);
 	Serial.print(",");
