@@ -4,6 +4,7 @@
 #include <Adafruit_Sensor.h>
 #include <Mouse.h>
 
+// Head movement tracker firmware for arduino nano + lsm9dsof
 
 // ################ 	SETTINGS	 ################
 //
